@@ -1,0 +1,11 @@
+### Crontab setup --------------------------------------------------------------
+$ crontab -e
+@hourly find ~ -name ".DS_Store" -depth -exec rm {} \;
+$ crontab -l
+
+### .bash_profile additions ----------------------------------------------------
+# make color iTerm
+alias ls="ls -G"
+
+alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
+alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
