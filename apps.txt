@@ -1,0 +1,23 @@
+Atom
+Cisco AnyConnect
+Dropbox
+Gimp
+Google Chrome
+Google Drive
+iTerm
+Keybase
+Keynote
+LyX
+MacTex
+Microsoft Office
+Mplus
+Numbers
+Pages
+R
+RStudio
+Skype
+Sophos Anti-Virus
+Things
+WhatsApp
+Xcode
+Zotero

@@ -1,0 +1,34 @@
+Passwordless Login
+1. Create ssh key: ssh-keygen -t rsa
+    name it something that will tell you what it's for (i.e., /Users/jakethompson/.ssh/cluster-id_rsa-20170413)
+    don't enter passphrase
+2. Add public key to cluster: ssh-copy-id -i ~/.ssh/cluster-id_rsa-20170413 w449t405@hpc.crc.ku.edu
+3. Attempt to login using ssh w449t405@hpc.crc.ku.edu
+4. Trouble shooting:
+    Add custom rsa: ssh-add ~/.ssh/cluster-id_rsa-20170413
+    Verify permissions: ssh w449t405@hpc.crc.ku.edu "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
+5. Create a nickname by adding to ~/.ssh/config
+    Host acf
+      HostName hpc.crc.ku.edu
+      User w449t405
+      IdentityFile ~/.ssh/cluster-id_rsa-20170413
+      KeepAlive yes
+      ServerAliveInterval 10
+      IdentitiesOnly yes
+6. Log into cluster using: ssh acf
+
+
+Mounting
+1. Download FUSE for macOS and SSHFS from https://osxfuse.github.io/
+    reboot computer after install
+2. Create a directory in ~/ that will be used for mounting: mkdir ~/mount-acf
+    manually mount with: sshfs acf: ~/mount-acf -ovolname=mount-acf
+    and unmount with: umount ~/mount-acf
+    fusermount is Linux specific and not needed for "FUSE for OS X" (https://github.com/osxfuse/osxfuse/wiki/FAQ)
+3. Create an alias in the bash profile to login, mount, and unmount automatically
+    a. Open bash profile in terminal: vi ~/.bash_profile
+    b. At the bottom add the following code to create an alias:
+        cluster='sshfs acf: ~/mount-acf -ovolname=mount-acf; ssh acf; umount ~/mount-acf'
+        This will mount the cluster storage, then connect to the cluster. When you exit the cluster, the command resumes and unmounts the storage.
+4. Update the bash profile using: $ source ~/.bash_profile
+5. Connect using: $ cluster
