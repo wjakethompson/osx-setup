@@ -41,6 +41,7 @@ brew install imagemagick
 brew install ffmpeg
 brew install osxfuse
 brew install sshfs
+brew install gpg
 
 
 # Clean up brew

@@ -9,3 +9,7 @@ alias ls="ls -G"
 
 alias showFiles='defaults write com.apple.finder AppleShowAllFiles YES; killall Finder /System/Library/CoreServices/Finder.app'
 alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall Finder /System/Library/CoreServices/Finder.app'
+
+### signed github commits ------------------------------------------------------
+# https://www.promptworks.com/blog/verifying-github-commits-with-keybase
+# https://github.com/pstadler/keybase-gpg-github
