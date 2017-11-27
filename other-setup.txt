@@ -13,3 +13,10 @@ alias hideFiles='defaults write com.apple.finder AppleShowAllFiles NO; killall F
 ### signed github commits ------------------------------------------------------
 # https://www.promptworks.com/blog/verifying-github-commits-with-keybase
 # https://github.com/pstadler/keybase-gpg-github
+
+### updates --------------------------------------------------------------------
+brew upgrade && brew cleanup
+
+# for latex
+tlmgr update --self --all
+fmtutil-sys --all
