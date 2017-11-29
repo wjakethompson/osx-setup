@@ -9,7 +9,7 @@ Passwordless Login
     Verify permissions: ssh w449t405@hpc.crc.ku.edu "chmod 700 .ssh; chmod 640 .ssh/authorized_keys"
 5. Create a nickname by adding to ~/.ssh/config
     Host acf
-      HostName hpc.crc.ku.edu
+      HostName submit1.hpc.crc.ku.edu
       User w449t405
       IdentityFile ~/.ssh/cluster-id_rsa-20170413
       KeepAlive yes
