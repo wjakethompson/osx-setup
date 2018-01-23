@@ -32,3 +32,41 @@ Mounting
         This will mount the cluster storage, then connect to the cluster. When you exit the cluster, the command resumes and unmounts the storage.
 4. Update the bash profile using: $ source ~/.bash_profile
 5. Connect using: $ cluster
+
+
+.bash_profile
+# .bash_profile
+
+# Get the aliases and functions
+if [ -f ~/.bashrc ]; then
+        . ~/.bashrc
+fi
+
+# User specific environment and startup programs
+
+PATH=$PATH:$HOME/bin
+
+export PATH
+
+export R_LIBS_USER=/home/w449t405/R/3.3.0
+
+# aliases
+alias qstatu='qstat -u w449t405 -t1n'
+alias mlogin='msub -I -l nodes=1:ppn=1,pmem=12000m'
+alias filecount='ls -1 | wc -l'
+
+export PATH=/panfs/pfs.local/work/crmda/tools/bin:$PATH
+source crmda_env.sh
+
+
+.bashrc
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific aliases and functions
+export PATH=/panfs/pfs.local/work/crmda/tools/bin:$PATH
+source crmda_env.sh
